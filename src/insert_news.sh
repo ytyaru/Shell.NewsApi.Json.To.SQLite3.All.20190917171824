@@ -9,7 +9,7 @@ run() {
 	local totalResults="`json_extract "$json_path" '$.totalResults'`"
 	for idx in $(seq 0 $(expr $totalResults - 1)); do
 		# JSONから項目を抽出する
-		local published="`json_extract "$json_path" '$.articles['"$idx"'].published'`"
+		local published="`json_extract "$json_path" '$.articles['"$idx"'].publishedAt'`"
 		local url="`json_extract "$json_path" '$.articles['"$idx"'].url'`"
 		local title="`json_extract "$json_path" '$.articles['"$idx"'].title'`"
 		local body="`json_extract "$json_path" '$.articles['"$idx"'].description'`" # とりあえずdescriptionで代用する
